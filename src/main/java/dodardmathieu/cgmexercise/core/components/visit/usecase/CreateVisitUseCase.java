@@ -15,13 +15,13 @@ import dodardmathieu.cgmexercise.core.providers.visit.VisitRepository;
 import dodardmathieu.cgmexercise.dataproviders.visit.VisitEntity;
 import dodardmathieu.cgmexercise.error.exception.ResourceNotFoundException;
 
-
 /**
  * Class dedicated to {@link VisitEntity} creation
  * 
  * @author Maleor
  *
  */
+
 @Service
 public class CreateVisitUseCase {
 
@@ -39,6 +39,7 @@ public class CreateVisitUseCase {
 	public interface CreateVisitPresenter<T> {
 		T apply(VisitEntity visitEntity);
 	}
+
 
 	
 	/**

@@ -48,15 +48,17 @@ public class UpdateVisitUseCase {
 	 * 
 	 * @return Result of presenter application
 	 */
+
 	@Transactional
 	public <T> T update(@NotNull UUID visitId, @NotNull VisitUpdateRequestDto visitDto, @NotNull UpdateVisitPresenter<T> presenter) {
 		
 		VisitEntity existingVisit = visitRepository.find(visitId)
 				.orElseThrow(() -> new ResourceNotFoundException(CgmExerciseResource.VISIT, visitId.toString()));
-		
+
 		Optional.ofNullable(visitDto.getType()).ifPresent(newType -> existingVisit.setType(VisitType.fromName(newType)));
 		Optional.ofNullable(visitDto.getReason()).ifPresent(newReason -> existingVisit.setReason(VisitReason.fromName(newReason)));
 		Optional.ofNullable(visitDto.getFamilyHistory()).ifPresent(newFamilyHistory -> existingVisit.setFamilyHistory(newFamilyHistory));;
+
 		
 		VisitEntity newVisit = visitRepository.save(existingVisit);
 	

@@ -13,15 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import dodardmathieu.cgmexercise.common.CgmExerciseResource;
 import dodardmathieu.cgmexercise.core.providers.patient.PatientRepository;
 import dodardmathieu.cgmexercise.dataproviders.patient.PatientEntity;
-import dodardmathieu.cgmexercise.dataproviders.visit.VisitEntity;
 import dodardmathieu.cgmexercise.error.exception.ResourceNotFoundException;
 
-/**
- * Class dedicated to {@link PatientEntity} fetching
- * 
- * @author Maleor
- *
- */
 @Service
 public class GetPatientUseCase {
 
@@ -37,6 +30,7 @@ public class GetPatientUseCase {
 		T apply(PatientEntity patientEntity);
 	}
 	
+
 	/**
 	 * Find a {@link PatientEntity}
 	 * 
@@ -50,7 +44,7 @@ public class GetPatientUseCase {
 	public <T> T getPatient(@NotNull UUID patientId, @NotNull GetPatientPresenter<T> presenter) {
 		return patientRepository.find(patientId).map(presenter::apply).orElseThrow(() -> new ResourceNotFoundException(CgmExerciseResource.PATIENT, patientId.toString()));
 	}
-	
+
 	
 	/**
 	 * Find all {@link PatientEntity}

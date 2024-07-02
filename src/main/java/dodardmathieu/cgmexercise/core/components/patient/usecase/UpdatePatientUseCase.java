@@ -1,5 +1,6 @@
 package dodardmathieu.cgmexercise.core.components.patient.usecase;
 
+
 import java.util.Optional;
 import java.util.UUID;
 
@@ -51,7 +52,7 @@ public class UpdatePatientUseCase {
 		
 		PatientEntity existingPatient = patientRepository.find(patientId)
 				.orElseThrow(() -> new ResourceNotFoundException(CgmExerciseResource.PATIENT, patientId.toString()));
-		
+
 		Optional.ofNullable(patientDto.getName()).ifPresent(newName -> existingPatient.setName(newName));
 		Optional.ofNullable(patientDto.getSurname()).ifPresent(newSurname -> existingPatient.setSurname(newSurname));
 		

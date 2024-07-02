@@ -17,6 +17,7 @@ import dodardmathieu.cgmexercise.dataproviders.patient.PatientEntity;
  * @author Maleor
  *
  */
+
 @Service
 public class DeletePatientUseCase {
 
